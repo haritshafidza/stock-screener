@@ -1,1 +1,27 @@
+name: Run Screener Daily
 
+on:
+  schedule:
+    -cron: '0 11 * * *'
+  workflow_dispatch:
+
+jobs:
+  screener:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actiond/checkout@v3
+
+    - name: Set Up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3-10'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run Screener
+      run: |
+        python screener.py
