@@ -1,1 +1,8 @@
-
+ta
+schedule
+python-dateutil
+finance-database
+requests
+pandas
+time
+pytz
